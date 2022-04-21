@@ -206,12 +206,6 @@ def pipeline(image):
         overlay = cv2.fillPoly(overlay, pts=[pts], color=(255, 255, 0))
         alpha = 0.4
         lane_det = cv2.addWeighted(overlay, alpha, lane_det, 1 - alpha, 0)
-        can_turn = 1
-
-    if len(y_lines) == 1:
-        if can_turn == 1:
-            can_turn = 0
-
 
     # has filled in polygons of where lanes are detected
     cv2.imshow("lane det", lane_det)
